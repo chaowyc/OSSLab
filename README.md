@@ -1,2 +1,2 @@
 # OSSLab
-some research about oss by matlatb
+do some research about oss by matlatb
