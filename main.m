@@ -58,21 +58,21 @@ end
 for i = 1: 5
     [GOtmp]=getGOft(b(1,i),t(:,i),l(i,1));
     GO(1:l(i,1),i)=GOtmp(:,1);
-    figure;
-    plot(GO,'r-');
-    title(['go-',num2str(i)]);
+%     figure;
+%     plot(GO,'r-');
+%     title(['go-',num2str(i)]);
     
     [DDStmp]=getDDSft(b_DDS(1,i),t(:,i),l(i,1));
     DDS(1:l(i,1),i)=DDStmp(:,1);
-    figure;
-    plot(DDS,'r-');
-    title(['dds-',num2str(i)]);
+%     figure;
+%     plot(DDS,'r-');
+%     title(['dds-',num2str(i)]);
     
     [Litmp]=getLift(N_Li(1,i),A_Li(1,i),afa_Li(1,i),t(:,i),l(i,1));
     Li(1:l(i,1),i)=Litmp(:,1);
-    figure;
-    plot(Li,'r-');
-    title(['Li-',num2str(i)]);
+%     figure;
+%     plot(Li,'r-');
+%     title(['Li-',num2str(i)]);
     
 end
 
@@ -80,29 +80,29 @@ for i = 1:4
     [CCPtmp,FCCPtmp]=get2CPft(controlChart_b1(1, i),controlChart_b2(1, i),controlChart_b3(1, i),controlChart_t1(1, i),controlChart_t2(1, i),t(:,i),l(i,1));
     CCP(1:l(i,1),i)=CCPtmp(:,1);
     FCCP(1:l(i,1),i)=FCCPtmp(:,1);
-    figure;
-    plot(CCP,'r-');
-    title(['ccp-',num2str(i)]);
+%     figure;
+%     plot(CCP,'r-');
+%     title(['ccp-',num2str(i)]);
     
     [PTPtmp,FPTPtmp]=get2CPft(publishTime_b1(1, i),publishTime_b2(1, i),publishTime_b3(1, i),publishTime_t1(1, i),publishTime_t2(1, i),t(:,i),l(i,1));
     PTP(1:l(i,1),i)=PTPtmp(:,1);
     FPTP(1:l(i,1),i)=FPTPtmp(:,1);
-    figure;
-    plot(PTP,'r-');
-    title(['ptp-',num2str(i)]);
+%     figure;
+%     plot(PTP,'r-');
+%     title(['ptp-',num2str(i)]);
     
     [CAPtmp,FCAPtmp]=get2CPft(clusterAlgor_b1(1, i),clusterAlgor_b2(1, i),clusterAlgor_b3(1, i),clusterAlgor_t1(1, i),clusterAlgor_t2(1, i),t(:,i),l(i,1));
     CAP(1:l(i,1),i)=CAPtmp(:,1);
     FCAP(1:l(i,1),i)=FCAPtmp(:,1);
-    figure;
-    plot(CAP,'r-');
-    title(['cap-',num2str(i)]);
+%     figure;
+%     plot(CAP,'r-');
+%     title(['cap-',num2str(i)]);
     [WAPtmp,FWAPtmp]=get2CPft(waveletAnalysis_b1(1, i),waveletAnalysis_b2(1, i),waveletAnalysis_b3(1, i),waveletAnalysis_t1(1, i),waveletAnalysis_t2(1, i),t(:,i),l(i,1));
     WAP(1:l(i,1),i)=WAPtmp(:,1);
     FWAP(1:l(i,1),i)=FWAPtmp(:,1);
-    figure;
-    plot(WAP,'r-');
-    title(['wap-',num2str(i)]);
+%     figure;
+%     plot(WAP,'r-');
+%     title(['wap-',num2str(i)]);
     
 end
 i=5;
@@ -131,33 +131,34 @@ clear WAPtmp
 clear FWAPtmp
 
 
-% %%%draw plr
-% for i = 1:5
-%     DrawPLR('CCP','G-O',CCP(:,i),GO(:,i),l(i,1),i);
-%     DrawPLR('CCP','DDS',CCP(:,i),DDS(:,i),l(i,1),i);
-%     DrawPLR('CCP','Li',CCP(:,i),Li(:,i),l(i,1),i);
-%     
-%     DrawPLR('PTP','G-O',PTP(:,i),GO(:,i),l(i,1),i);
-%     DrawPLR('PTP','DDS',PTP(:,i),DDS(:,i),l(i,1),i);
-%     DrawPLR('PTP','Li',PTP(:,i),Li(:,i),l(i,1),i);
-%     
-%     DrawPLR('CAP','G-O',CAP(:,i),GO(:,i),l(i,1),i);
-%     DrawPLR('CAP','DDS',CAP(:,i),DDS(:,i),l(i,1),i);
-%     DrawPLR('CAP','Li',CAP(:,i),Li(:,i),l(i,1),i);
-%     
-%     DrawPLR('WAP','G-O',WAP(:,i),GO(:,i),l(i,1),i);
-%     DrawPLR('WAP','DDS',WAP(:,i),DDS(:,i),l(i,1),i);
-%     DrawPLR('WAP','Li',WAP(:,i),Li(:,i),l(i,1),i);
-% end
+%%%draw plr
+for i = 1:5
+    DrawPLR('CCP','G-O',CCP(:,i),GO(:,i),l(i,1),i);
+    DrawPLR('CCP','DDS',CCP(:,i),DDS(:,i),l(i,1),i);
+    DrawPLR('CCP','Li',CCP(:,i),Li(:,i),l(i,1),i);
+    
+    DrawPLR('PTP','G-O',PTP(:,i),GO(:,i),l(i,1),i);
+    DrawPLR('PTP','DDS',PTP(:,i),DDS(:,i),l(i,1),i);
+    
+    DrawPLR('PTP','Li',PTP(:,i),Li(:,i),l(i,1),i);
+    
+    DrawPLR('CAP','G-O',CAP(:,i),GO(:,i),l(i,1),i);
+    DrawPLR('CAP','DDS',CAP(:,i),DDS(:,i),l(i,1),i);
+    DrawPLR('CAP','Li',CAP(:,i),Li(:,i),l(i,1),i);
+    
+    DrawPLR('WAP','G-O',WAP(:,i),GO(:,i),l(i,1),i);
+    DrawPLR('WAP','DDS',WAP(:,i),DDS(:,i),l(i,1),i);
+    DrawPLR('WAP','Li',WAP(:,i),Li(:,i),l(i,1),i);
+end
 % 
 % 
 % 
 % 
-% %%%draw U
-% for i = 1:5
-%     len=l(i,1);
-%     DrawU(Nt(1:len,i),FCCP(1:len,i),'CCP',len,i);
-%     DrawU(Nt(1:len,i),FPTP(1:len,i),'PTP',len,i);
-%     DrawU(Nt(1:len,i),FCAP(1:len,i),'CAP',len,i);
-%     DrawU(Nt(1:len,i),FWAP(1:len,i),'WAP',len,i);
-% end
+%%%draw U
+for i = 1:5
+    len=l(i,1);
+    DrawU(Nt(1:len,i),FCCP(1:len,i),'CCP',len,i);
+    DrawU(Nt(1:len,i),FPTP(1:len,i),'PTP',len,i);
+    DrawU(Nt(1:len,i),FCAP(1:len,i),'CAP',len,i);
+    DrawU(Nt(1:len,i),FWAP(1:len,i),'WAP',len,i);
+end
